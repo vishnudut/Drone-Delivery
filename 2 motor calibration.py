@@ -4,13 +4,12 @@ os.system ("sudo pigpiod")
 time.sleep(1) 
 import pigpio 
 
-ESC1 = 2
-ESC2 = 4
+ESC1 = 6
+ESC2 = 5
 
-pi1 = pigpio.pi()
-pi2 = pigpio.pi()
-pi1.set_servo_pulsewidth(ESC1, 0)
-pi2.set_servo_pulsewidth(ESC2, 0)
+pi = pigpio.pi()
+pi.set_servo_pulsewidth(ESC1, 0)
+pi.set_servo_pulsewidth(ESC2, 0)
 
 maxVal = 2000
 minVal = 500
@@ -22,8 +21,8 @@ def control():
     speed = 1500    
     print("a -- decrease speed && d -- increase speed && q -- decrease a lot of speed && e -- for lot of speed")
     while True:
-        pi1.set_servo_pulsewidth(ESC1, speed)
-        pi2.set_servo_pulsewidth(ESC2, speed)
+        pi.set_servo_pulsewidth(ESC1, speed)
+        pi.set_servo_pulsewidth(ESC2, speed)
 
         inp = raw_input()
         
@@ -52,22 +51,22 @@ def arm():
     print("Connect the battery and press Enter")
     inp = raw_input()    
     if inp == '':
-        pi1.set_servo_pulsewidth(ESC1, 0)
-        pi2.set_servo_pulsewidth(ESC1, 0)
+        pi.set_servo_pulsewidth(ESC1, 0)
+        pi.set_servo_pulsewidth(ESC2, 0)
         time.sleep(1)
-        pi1.set_servo_pulsewidth(ESC1, maxVal)
-        pi2.set_servo_pulsewidth(ESC1, maxVal)
+        pi.set_servo_pulsewidth(ESC1, maxVal)
+        pi.set_servo_pulsewidth(ESC2, maxVal)
         time.sleep(1)
-        pi1.set_servo_pulsewidth(ESC1, minVal)
-        pi2.set_servo_pulsewidth(ESC1, minVal)
+        pi.set_servo_pulsewidth(ESC1, minVal)
+        pi.set_servo_pulsewidth(ESC2, minVal)
         time.sleep(1)
         control()
 
 def stop(): 
-    pi1.set_servo_pulsewidth(ESC1, 0)
-    pi2.set_servo_pulsewidth(ESC2, 0)
-    pi1.stop()
-    pi2.stop()
+    pi.set_servo_pulsewidth(ESC1, 0)
+    pi.set_servo_pulsewidth(ESC2, 0)
+    pi.stop()
+    pi.stop()
 
 inp = raw_input()
 if inp == "arm":

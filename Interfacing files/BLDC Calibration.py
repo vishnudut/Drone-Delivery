@@ -1,8 +1,3 @@
-# This program will let you test your ESC and brushless motor.
-# Make sure your battery is not connected if you are going to calibrate it at first.
-# Since you are testing your motor, I hope you don't have your propeller attached to it otherwise you are in trouble my friend...?
-# This program is made by AGT @instructable.com. DO NOT REPUBLISH THIS PROGRAM... actually the program itself is harmful                                             pssst Its not, its safe.
-
 import os     #importing os library so as to communicate with the system
 import time   #importing time library to make Rpi wait because its too impatient 
 os.system ("sudo pigpiod") #Launching GPIO library
@@ -11,7 +6,7 @@ import pigpio #importing GPIO library
 
 ESC=4  #Connect the ESC in this GPIO pin 
 
-pi = pigpio.pi();
+pi = pigpio.pi()
 pi.set_servo_pulsewidth(ESC, 0) 
 
 max_value = 2000 #change this if your ESC's max value is different or leave it be
@@ -90,7 +85,7 @@ def control():
             arm()
             break	
         else:
-            print "WHAT DID I SAID!! Press a,q,d or e"
+            print("WHAT DID I SAID!! Press a,q,d or e")
             
 def arm(): #This is the arming procedure of an ESC 
     print "Connect the battery and press Enter"
@@ -108,7 +103,6 @@ def stop(): #This will stop every action your Pi is performing for ESC ofcourse.
     pi.set_servo_pulsewidth(ESC, 0)
     pi.stop()
 
-#This is the start of the program actually, to start the function it needs to be initialized before calling... stupid python.    
 inp = raw_input()
 if inp == "manual":
     manual_drive()
