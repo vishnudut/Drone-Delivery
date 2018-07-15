@@ -1,12 +1,12 @@
 # Drone based smart delivery system using Raspberry Pi
 
-**Course**: CSE 3009 Image Processing
+**Course**: CSE 3009 Internet Of Things
 
 **Faculty:** Prof. Vaidehi Vijayakumar
 
 ## Team Members
 
-- [Sridhar Pandian](https://github.com/SridharPandian/). // 16BXX1xxx
+- [Sridhar Pandian](https://github.com/SridharPandian/). // 16BEC1277
 - [Vishnu Dut](https://github.com/vishnudut) // 16BCE1103
 - [Sriram Ravichandran](https://github.com/digi0ps) // 16BCE1026
 
